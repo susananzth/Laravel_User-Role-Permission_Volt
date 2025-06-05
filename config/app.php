@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Lima',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,18 @@ return [
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
-        'store' => env('APP_MAINTENANCE_STORE', 'database'),
+        // 'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+    'languages' => [
+        'en' => 'English',
+        'es' => 'Spainsh',
+    ],
+
+    'logo' => env('APP_LOGO', 'logo.png'),
+
+    'author' => env('APP_AUTHOR', config('app.name')),
+
+    'year_copyright' => env('APP_YEAR_COPYRIGHT', date('Y')),
 
 ];
