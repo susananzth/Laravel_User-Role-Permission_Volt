@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\DocumentType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -26,6 +27,8 @@ class UserFactory extends Factory
         return [
             'first_name'        => fake()->firstName(),
             'last_name'         => fake()->lastName(),
+            'document_type_id'  => DocumentType::inRandomOrder()->first()->id,
+            'document_number'   => strval(fake()->randomNumber(8, true)),
             'phone'             => strval(fake()->randomNumber(9, true)),
             'email'             => Str::random(10).'@gmail.com',
             'email_verified_at' => now(),
