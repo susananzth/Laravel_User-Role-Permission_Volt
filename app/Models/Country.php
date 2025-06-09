@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class Country extends Model
@@ -18,6 +19,14 @@ class Country extends Model
         'iso_number',
         'phone_code',
     ];
+
+    /**
+     * The currencies that belong to the country.
+     */
+    public function currencies(): BelongsToMany
+    {
+        return $this->belongsToMany(Currency::class, 'country_currency');
+    }
 
     /**
      * Get the states for the country.
